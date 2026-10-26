@@ -1,0 +1,23 @@
+services:
+  quranvid:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4310:4310"
+    environment:
+      QURANVID_API_KEY: ${QURANVID_API_KEY:?Run npm run server:setup first}
+      QURANVID_PUBLIC_URL: ${QURANVID_PUBLIC_URL:-http://localhost:4310}
+      OPENVERSE_ACCESS_TOKEN: ${OPENVERSE_ACCESS_TOKEN:-}
+      QURANVID_MAX_ASSET_MB: ${QURANVID_MAX_ASSET_MB:-200}
+      QURANVID_MAX_STORAGE_MB: ${QURANVID_MAX_STORAGE_MB:-2048}
+      QURANVID_PROXY_MODE: ${QURANVID_PROXY_MODE:-none}
+      QURANVID_MCP_ALLOWED_ORIGINS: ${QURANVID_MCP_ALLOWED_ORIGINS:-https://chatgpt.com,https://chat.openai.com}
+    volumes:
+      - quranvid-data:/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:4310/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+volumes:
+  quranvid-data:

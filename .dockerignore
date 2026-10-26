@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+.git
+.env*
+!.env.example
+.quranvid-server
+playwright-report
+test-results
+*.tsbuildinfo
+
+.private/
+.public-release/
+*.key
+*.pem
+*.zip
+*.log

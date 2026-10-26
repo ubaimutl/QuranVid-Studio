@@ -1,0 +1,28 @@
+node_modules/
+.next/
+out/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.env*
+!.env.example
+.quranvid-server/
+
+# Private operations, content packs and user exports
+.private/
+.public-release/
+*.quranvid.json
+*.quranvid.zip
+*.pem
+*.key
+*.log
+*.zip
+__pycache__/
+*.pyc
+# Prepared third-party content stays local; not licensed as application code.
+lib/sample-data.json
+public/data/*.json
+public/data/recitations/**/*.json
+public/data/recitations/*.json
+public/audio/*
+!public/audio/SOURCES.md

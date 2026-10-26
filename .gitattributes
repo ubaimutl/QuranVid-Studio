@@ -1,0 +1,9 @@
+# Export filtering supplements .gitignore; it does not erase existing history.
+.private/ export-ignore
+.env export-ignore
+.env.* export-ignore
+.env.example -export-ignore
+lib/sample-data.json export-ignore
+public/data/*.json export-ignore
+public/data/recitations/**/*.json export-ignore
+public/audio/*.mp3 export-ignore
